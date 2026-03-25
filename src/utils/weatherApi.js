@@ -1,3 +1,5 @@
+import { weatherOptions } from "../utils/constants.js";
+
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`,
@@ -15,7 +17,7 @@ export const filterWeatherData = (data) => {
   result.city = data.name;
   result.temp = { F: data.main.temp };
   result.type = getWeatherType(result.temp.F);
-  result.condition = data.weather[0].main.toLowerCase();
+  result.condition = mapApiCondition(data.weather[0].main.toLowerCase());
   result.isDay = isDay(data.sys, Date.now());
 
   return result;
@@ -33,4 +35,17 @@ const getWeatherType = (temperature) => {
   } else {
     return "cold";
   }
+};
+
+const mapApiCondition = (apiCondition) => {
+  const mapping = {
+    clear: "clear",
+    clouds: "cloudy",
+    thunderstorm: "stormy",
+    rain: "rainy",
+    snow: "snowy",
+    mist: "foggy",
+    fog: "foggy",
+  };
+  return mapping[apiCondition] || apiCondition;
 };
