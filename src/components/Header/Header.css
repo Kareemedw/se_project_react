@@ -2,6 +2,13 @@
   display: flex;
   justify-content: space-between;
   padding: 32px 0 28px;
+  font-family: "CabinetGrotesk-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: rgba(33, 33, 33);
 }
 
 .header__section1 {

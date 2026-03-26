@@ -1,5 +1,7 @@
-.modal__close_white-btn {
-}
-
-.modal__close-icon {
+.modal__content_type_image {
+  font-family: "CabinetGrotesk-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
 }

@@ -1,9 +1,9 @@
 import "./ItemModal.css";
 import whiteCloseBtn from "../../assets/closeButton.svg";
 
-function ItemModal({ activeModal, closeActiveModal, card }) {
+function ItemModal({ isOpen, closeActiveModal, card }) {
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_is_opened"} `}>
+    <div className={`modal ${isOpen ? "modal_is_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
         <button
           onClick={closeActiveModal}
@@ -12,7 +12,7 @@ function ItemModal({ activeModal, closeActiveModal, card }) {
         >
           <img src={whiteCloseBtn} alt="X-Icon" className="modal__close-icon" />
         </button>
-        <img src={card.link} alt="Clothing Item" className="modal__image" />
+        <img src={card.link} alt={card.name} className="modal__image" />
         <div className="modal__footer">
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>

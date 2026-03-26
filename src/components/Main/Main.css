@@ -1,3 +1,11 @@
+.cards {
+  font-family: "CabinetGrotesk-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .cards__list {
   display: flex;
   flex-wrap: wrap;

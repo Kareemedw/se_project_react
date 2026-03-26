@@ -42,6 +42,7 @@ const mapApiCondition = (apiCondition) => {
     clear: "clear",
     clouds: "cloudy",
     thunderstorm: "stormy",
+    storm: "stormy",
     rain: "rainy",
     snow: "snowy",
     mist: "foggy",
