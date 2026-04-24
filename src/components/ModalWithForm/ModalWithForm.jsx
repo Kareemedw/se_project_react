@@ -6,8 +6,9 @@ function ModalWithForm({
   buttonText,
   title,
   name = "add-garment",
-  closeActiveModal,
+  onClose,
   isOpen,
+  onSubmit,
 }) {
   return (
     <div
@@ -15,14 +16,10 @@ function ModalWithForm({
     >
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
-        <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close"
-        >
+        <button onClick={onClose} type="button" className="modal__close">
           <img src={closeButton} alt="X-Icon" className="modal__close-icon" />
         </button>
-        <form action="" className="modal__form">
+        <form onSubmit={onSubmit} className="modal__form">
           {children}
           <button
             type="submit"

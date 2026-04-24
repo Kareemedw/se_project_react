@@ -1,0 +1,19 @@
+.sidebar__profile {
+  display: flex;
+}
+
+.sidebar__username {
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  margin: 0 12px 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+}
