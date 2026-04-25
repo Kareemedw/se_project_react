@@ -1,0 +1,49 @@
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalForm__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 730px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  padding: 32px 50px;
+  box-sizing: border-box;
+}
+
+.modal__form.modal__form-delete {
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+.modal__submit_button {
+  background-color: #212121;
+  padding: 18px 58px;
+  max-width: 156px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #fcf5e5;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+  border: none;
+}
+
+.modal__submit_button.modal__form-delete-button:hover {
+  background-color: #ff6565;
+  color: #212121;
+}
+
+.modal__submit_button.modal__submit_button_cancel {
+  background-color: #ffffff;
+  color: #212121;
+  border: 1px rgba(33, 33, 33) solid;
+}

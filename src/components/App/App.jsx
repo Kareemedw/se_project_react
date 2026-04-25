@@ -11,7 +11,8 @@ import CurrentTempratureUnitContext from "../Context/CurrentTempratureUnitContex
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import ClothesSection from "../ClothesSection/ClothesSection";
-import { getItems } from "../../utils/api";
+import { addItem, getItems, removeItem } from "../../utils/api";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,6 +40,10 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleDeleteClick = () => {
+    setActiveModal("delete-item");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -46,11 +51,27 @@ function App() {
   const onAddItem = (inputValues) => {
     const newCardData = {
       name: inputValues.name,
-      link: inputValues.link,
+      imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
     };
-    setClothingItems([...clothingItems, newCardData]);
-    closeActiveModal();
+
+    addItem(newCardData)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const onDeleteItem = (itemID) => {
+    removeItem(itemID)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== itemID),
+        );
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -63,7 +84,7 @@ function App() {
 
     getItems()
       .then((data) => {
-        setClothingItems(data);
+        setClothingItems(data.reverse());
       })
       .catch(console.error);
 
@@ -121,6 +142,13 @@ function App() {
           isOpen={activeModal === "preview"}
           card={selectedCard}
           closeActiveModal={closeActiveModal}
+          onDeleteClick={handleDeleteClick}
+        />
+        <DeleteModal
+          isOpen={activeModal === "delete-item"}
+          closeActiveModal={closeActiveModal}
+          card={selectedCard}
+          onDeleteItem={onDeleteItem}
         />
       </div>
     </CurrentTempratureUnitContext.Provider>

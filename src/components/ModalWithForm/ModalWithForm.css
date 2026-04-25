@@ -33,6 +33,7 @@
   right: 28px;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .modal__title {
