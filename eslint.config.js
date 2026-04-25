@@ -33,7 +33,7 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
-      "react/porp-types": 0,
+      "react/prop-types": 0,
     },
     // Add an overrides array. Without this, ESLint could only be run via
     // the npm run lint command. Adding this will allow it to be run also

@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { APIkey, coordinates } from "../../utils/constants";
-import CurrentTempratureUnitContext from "../../utils/Context/CurrentTempratureUnitContext";
+import CurrentTemperatureUnitContext from "../../utils/Context/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import ClothesSection from "../ClothesSection/ClothesSection";
@@ -24,11 +24,11 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectCard] = useState({});
-  const [currentTempratureUnit, setCurrentTempratureUnit] = useState("F");
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleToggleSwitchChange = () => {
-    setCurrentTempratureUnit(currentTempratureUnit === "F" ? "C" : "F");
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
   const handleCardClick = (card) => {
@@ -87,24 +87,27 @@ function App() {
         setClothingItems(data.reverse());
       })
       .catch(console.error);
+  }, []);
 
+  useEffect(() => {
     if (!activeModal) return;
-    const handleEscClose = (e) => {
+
+    const onEsc = (e) => {
       if (e.key === "Escape") {
         closeActiveModal();
       }
     };
 
-    document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("keydown", onEsc);
 
     return () => {
-      document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("keydown", onEsc);
     };
   }, [activeModal]);
 
   return (
-    <CurrentTempratureUnitContext.Provider
-      value={{ currentTempratureUnit, handleToggleSwitchChange }}
+    <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
       <div className="page">
         <div className="page__content">
@@ -151,7 +154,7 @@ function App() {
           onDeleteItem={onDeleteItem}
         />
       </div>
-    </CurrentTempratureUnitContext.Provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 
