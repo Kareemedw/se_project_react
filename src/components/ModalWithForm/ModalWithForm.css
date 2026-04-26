@@ -54,6 +54,9 @@
 .modal__input {
   margin-top: 8px;
   padding: 4px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .modal__radio-buttons {
@@ -70,6 +73,8 @@
 
 .modal__label_type_radio {
   margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .modal__submit_btn {
