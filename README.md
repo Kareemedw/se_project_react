@@ -143,6 +143,8 @@ Deployment (Render / Vercel)
 
 # Project Pitch Video - https://drive.google.com/file/d/1EKrt5wxZ_9oNlxf5FW7D-gDT2C4S2MRG/view?usp=sharing
 
+# Backend link - https://github.com/Kareemedw/se_project_express
+
 ## Author:
 
 Kareem Edwards

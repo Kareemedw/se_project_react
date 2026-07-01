@@ -56,8 +56,8 @@ function App() {
     };
 
     addItem(newCardData)
-      .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+      .then((item) => {
+        setClothingItems([item, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error);
@@ -83,8 +83,8 @@ function App() {
       .catch(console.error);
 
     getItems()
-      .then((data) => {
-        setClothingItems(data.reverse());
+      .then((items) => {
+        setClothingItems([...items].reverse());
       })
       .catch(console.error);
   }, []);
@@ -134,8 +134,8 @@ function App() {
               }
             />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
