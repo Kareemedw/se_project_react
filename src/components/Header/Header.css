@@ -36,6 +36,7 @@
 
 .header__user-container {
   display: flex;
+  margin-right: 12px;
 }
 
 .header__username {
@@ -48,9 +49,12 @@
 .header__nav-link {
   color: #000000;
   text-decoration: none;
+  display: flex;
 }
 
 .navbar__button {
   background: transparent;
   border: none;
+  padding: 0;
+  cursor: pointer;
 }

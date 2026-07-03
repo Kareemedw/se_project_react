@@ -19,6 +19,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   function handleSubmit(evt) {
     evt.preventDefault();
     onAddItem(values);
+    setValues(defaultValues);
   }
 
   return (
@@ -66,6 +67,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio-input"
             id="hot"
             value="hot"
+            checked={values.weatherType === "hot"}
             onChange={handleChange}
           />
           Hot
@@ -77,6 +79,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio-input"
             id="warm"
             value="warm"
+            checked={values.weatherType === "farm"}
             onChange={handleChange}
           />
           Warm
@@ -88,6 +91,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio-input"
             id="cold"
             value="cold"
+            checked={values.weatherType === "cold"}
             onChange={handleChange}
           />
           Cold
