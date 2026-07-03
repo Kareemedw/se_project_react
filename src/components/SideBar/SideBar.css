@@ -13,6 +13,15 @@
   letter-spacing: 0%;
 }
 
+.sidebar__link {
+  list-style: none;
+}
+
+.sidebar__button {
+  background: transparent;
+  border: none;
+}
+
 .sidebar__avatar {
   width: 56px;
   height: 56px;

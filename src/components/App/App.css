@@ -13,3 +13,19 @@
   width: 100%;
   max-width: 1360px;
 }
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  flex-direction: column;
+}
+
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+  flex-direction: column;
+}

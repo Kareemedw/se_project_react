@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { useContext } from "react";
+import CurrentUserContext from "../../utils/Context/CurrentUserContext";
+import { removeToken } from "../../utils/token";
 
 function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -10,7 +13,16 @@ function Header({ handleAddClick, weatherData }) {
     day: "numeric",
   });
 
-  const username = "Terrence Tegegne";
+  const { username, setIsLoggedIn } = useContext(CurrentUserContext);
+
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    removeToken();
+    navigate("/login");
+    console.log("setIsLoggedIn type:", typeof setIsLoggedIn);
+    setIsLoggedIn(false);
+  };
 
   return (
     <header className="header">
@@ -34,6 +46,9 @@ function Header({ handleAddClick, weatherData }) {
         <NavLink className="header__nav-link" to="/profile">
           <div className="header__user-container">
             <p className="header__username">{username}</p>
+            <button onClick={signOut} className="navbar__link navbar__button">
+              Sign Out
+            </button>
             <img
               src={avatar}
               alt="Terrence Tegegne"
