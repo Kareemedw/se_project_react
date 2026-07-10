@@ -1,5 +1,7 @@
-import "./ModalWithForm.css";
+import { useContext } from "react";
+import CurrentUserContext from "../../utils/Context/CurrentUserContext";
 import closeButton from "../../assets/closeButton.svg";
+import "./ModalWithForm.css";
 
 function ModalWithForm({
   children,
@@ -9,6 +11,7 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
+  item,
 }) {
   return (
     <div

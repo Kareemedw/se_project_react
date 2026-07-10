@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect } from "react";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose, item }) => {
   const defaultValues = {
     name: "",
     imageUrl: "",
@@ -79,7 +79,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             className="modal__radio-input"
             id="warm"
             value="warm"
-            checked={values.weatherType === "farm"}
+            checked={values.weatherType === "warm"}
             onChange={handleChange}
           />
           Warm

@@ -36,7 +36,11 @@ function App() {
     isDay: true,
   });
 
-  const [userData, setUserData] = useState({ username: "", email: "" });
+  const [userData, setUserData] = useState({
+    _id: "",
+    username: "",
+    email: "",
+  });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isCheckingToken, setIsCheckingToken] = useState(true);
 
@@ -143,9 +147,9 @@ function App() {
 
     api
       .getCurrentUser(jwt)
-      .then(({ username, email }) => {
+      .then((user) => {
         setIsLoggedIn(true);
-        setUserData({ username, email });
+        setUserData(user);
       })
       .catch((err) => {
         console.error(err);
@@ -191,8 +195,9 @@ function App() {
   return (
     <CurrentUserContext.Provider
       value={{
-        username: userData.username,
-        email: userData.email,
+        /* username: userData.username,
+        email: userData.email,*/
+        ...userData,
         setIsLoggedIn,
       }}
     >

@@ -40,7 +40,7 @@ export const removeItem = (itemID) => {
 export const getCurrentUser = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      authorization: `Bearer ${token}`,
     },
   }).then(handleServerResponse);
 };
