@@ -11,14 +11,38 @@
   cursor: pointer;
 }
 
-.card__name {
+.card__container {
+  display: flex;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   position: absolute;
-  top: 15px;
-  margin: 0;
+  gap: 10px;
+}
+
+.card__name {
+  background-color: #ffffff;
 }
 
 .card__image {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   width: 100%;
+}
+
+.card__like-button {
+  background: transparent url(../../assets/heart.svg) center no-repeat;
+  width: 23px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 40%;
+  transition: opacity 0.3s ease;
+  background-color: #fcf5e5;
+  border-style: none;
+  padding: 0;
+}
+
+.card__like-button_active {
+  background: url(../../assets/liked-color.svg);
+  opacity: 1;
 }

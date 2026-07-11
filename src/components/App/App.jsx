@@ -137,6 +137,24 @@ function App() {
       .catch(console.error);
   };
 
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+
+    const request = isLiked
+      ? api.removeCardLike(id, token)
+      : api.addCardLike(id, token);
+
+    request
+      .then((updatedCard) => {
+        setClothingItems((items) =>
+          items.map((item) =>
+            item._id === updatedCard._id ? updatedCard : item,
+          ),
+        );
+      })
+      .catch(console.error);
+  };
+
   useEffect(() => {
     const jwt = getToken();
 
@@ -219,6 +237,8 @@ function App() {
                       weatherData={weatherData}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
+                      isLoggedIn={isLoggedIn}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
                 }
@@ -235,6 +255,8 @@ function App() {
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handAddClick={handleAddClick}
+                      isLoggedIn={isLoggedIn}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
                 }

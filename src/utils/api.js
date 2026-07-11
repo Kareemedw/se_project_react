@@ -44,3 +44,17 @@ export const getCurrentUser = (token) => {
     },
   }).then(handleServerResponse);
 };
+
+export const addCardLike = (itemID, token) => {
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "PUT",
+    headers: getHeaders(token),
+  }).then(handleServerResponse);
+};
+
+export const removeCardLike = (itemID, token) => {
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "DELETE",
+    headers: getHeaders(token),
+  }).then(handleServerResponse);
+};
