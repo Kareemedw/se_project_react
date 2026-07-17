@@ -5,14 +5,14 @@ import CurrentUserContext from "../../utils/Context/CurrentUserContext";
 import { removeToken } from "../../utils/token";
 import "./SideBar.css";
 
-function SideBar() {
+function SideBar({ onEditProfile }) {
   const { username, setIsLoggedIn } = useContext(CurrentUserContext);
 
   const navigate = useNavigate();
 
   const signOut = () => {
     removeToken();
-    navigate("/login");
+    navigate("/");
     console.log("setIsLoggedIn type:", typeof setIsLoggedIn);
     setIsLoggedIn(false);
   };
@@ -25,6 +25,13 @@ function SideBar() {
       </div>
       <ul>
         <li className="sidebar__link">
+          <button
+            type="button"
+            className="sidebar__button"
+            onClick={onEditProfile}
+          >
+            Update profile
+          </button>
           <button onClick={signOut} className="sidebar__link sidebar__button">
             Sign Out
           </button>

@@ -4,17 +4,19 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import logo from "../../assets/logo.svg";
 import "../Header/Header.css";
 
-const LoginModal = ({
-  isOpen,
-  onClose,
-  handleLogin,
+const RegisterModal = ({
   showPassword,
   setShowPassword,
-  onRegisterClick,
+  handleRegistration,
+  onLoginClick,
+  isOpen,
+  onClose,
 }) => {
   const [data, setData] = useState({
+    username: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -27,29 +29,39 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login form data:", data);
 
-    handleLogin(data);
+    handleRegistration(data);
   };
 
   return (
     <ModalWithForm
-      name="login"
-      title="Log in"
-      buttonText="Log in"
+      name="register"
+      title="Sign up"
+      buttonText="Sign up"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <p className="login__welcome">Please login</p>
-      <label className="modal__label-user" htmlFor="email">
+      <p className="register__welcome">Please register</p>
+      <label className="modal__label-user " htmlFor="username">
         Username:
       </label>
       <input
         className="modal__input"
+        id="username"
+        type="text"
+        name="username"
+        value={data.username}
+        onChange={handleChange}
+      />
+      <label className="modal__label-user" htmlFor="email">
+        Email:
+      </label>
+      <input
+        className="modal__input"
         id="email"
-        type="email"
         name="email"
+        type="email"
         value={data.email}
         onChange={handleChange}
       />
@@ -71,15 +83,33 @@ const LoginModal = ({
       >
         {showPassword ? "Hide Password" : "Show Password"}
       </button>
+      <label className="modal__label-user" htmlFor="confirmPassword">
+        Confirm Password:
+      </label>
+      <input
+        className="modal__input"
+        id="confirmPassword"
+        name="confirmPassword"
+        type={showPassword ? "text" : "password"}
+        value={data.confirmPassword}
+        onChange={handleChange}
+      />
+      <button
+        className="show__password-btn modal__submit_btn-password"
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? "Hide Password" : "Show Password"}
+      </button>
       <button
         type="button"
         className="modal__secondary-button"
-        onClick={onRegisterClick}
+        onClick={onLoginClick}
       >
-        or Sign up
+        or Log in
       </button>
     </ModalWithForm>
   );
 };
 
-export default LoginModal;
+export default RegisterModal;

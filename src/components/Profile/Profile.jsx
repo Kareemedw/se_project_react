@@ -8,10 +8,11 @@ function Profile({
   handAddClick,
   onCardLike,
   isLoggedIn,
+  onEditProfile,
 }) {
   return (
     <section className="profile">
-      <SideBar />
+      <SideBar onEditProfile={onEditProfile} />
       <ClothesSection
         handleCardClick={handleCardClick}
         clothingItems={clothingItems}

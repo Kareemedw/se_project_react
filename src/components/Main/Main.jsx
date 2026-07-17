@@ -14,14 +14,14 @@ function Main({
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
-  const currentUser = useContext(CurrentUserContext);
+  /* const currentUser = useContext(CurrentUserContext);
 
   const userItems = clothingItems?.filter((item) => {
     const ownerId =
       typeof item?.owner === "object" ? item.owner?._id : item.owner;
 
     return String(ownerId) === String(currentUser?._id);
-  });
+  });*/
 
   return (
     <main>
@@ -35,7 +35,7 @@ function Main({
           &deg; {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
-          {userItems
+          {clothingItems
             .filter((item) => item.weather === weatherData.type)
             .map((item) => (
               <ItemCard

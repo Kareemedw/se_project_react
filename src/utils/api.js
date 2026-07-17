@@ -58,3 +58,17 @@ export const removeCardLike = (itemID, token) => {
     headers: getHeaders(token),
   }).then(handleServerResponse);
 };
+
+export const updateUserProfile = ({ username, avatar }, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      username,
+      avatar,
+    }),
+  }).then(handleServerResponse);
+};
