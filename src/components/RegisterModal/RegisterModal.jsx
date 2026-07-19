@@ -13,7 +13,7 @@ const RegisterModal = ({
   onClose,
 }) => {
   const [data, setData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -45,37 +45,37 @@ const RegisterModal = ({
       <p className="register__welcome">Please register</p>
       <label className="modal__label-user " htmlFor="username">
         Username:
+        <input
+          className="modal__input"
+          id="username"
+          type="text"
+          name="username"
+          value={data.name}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="username"
-        type="text"
-        name="username"
-        value={data.username}
-        onChange={handleChange}
-      />
       <label className="modal__label-user" htmlFor="email">
         Email:
+        <input
+          className="modal__input"
+          id="email"
+          name="email"
+          type="email"
+          value={data.email}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="email"
-        name="email"
-        type="email"
-        value={data.email}
-        onChange={handleChange}
-      />
       <label className="modal__label-user" htmlFor="password">
         Password:
+        <input
+          className="modal__input"
+          id="password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={data.password}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="password"
-        name="password"
-        type={showPassword ? "text" : "password"}
-        value={data.password}
-        onChange={handleChange}
-      />
       <button
         className="show__password-btn modal__submit_btn-password"
         type="button"
@@ -85,15 +85,15 @@ const RegisterModal = ({
       </button>
       <label className="modal__label-user" htmlFor="confirmPassword">
         Confirm Password:
+        <input
+          className="modal__input"
+          id="confirmPassword"
+          name="confirmPassword"
+          type={showPassword ? "text" : "password"}
+          value={data.confirmPassword}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="confirmPassword"
-        name="confirmPassword"
-        type={showPassword ? "text" : "password"}
-        value={data.confirmPassword}
-        onChange={handleChange}
-      />
       <button
         className="show__password-btn modal__submit_btn-password"
         type="button"
@@ -103,7 +103,7 @@ const RegisterModal = ({
       </button>
       <button
         type="button"
-        className="modal__secondary-button"
+        className="modal__secondary-button modal__secondary-button_register"
         onClick={onLoginClick}
       >
         or Log in

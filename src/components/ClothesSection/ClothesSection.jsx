@@ -33,7 +33,6 @@ function ClothesSection({
             key={item._id}
             item={item}
             onCardClick={handleCardClick}
-            onCardClick={handleCardClick}
             onCardLike={onCardLike}
             isLoggedIn={isLoggedIn}
           />

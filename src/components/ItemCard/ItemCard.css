@@ -41,17 +41,16 @@
 }
 
 .card__like-button {
-  width: 23px;
-  height: 20px;
-  padding: 0;
+  width: 24px;
+  height: 25px;
   border: none;
+  background: transparent;
+  background-image: url("../../assets/heart.svg");
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
-  -webkit-mask: url("../../assets/heart.svg") center / contain no-repeat;
-  mask: url("../../assets/heart.svg") center / contain no-repeat;
 }
 
 .card__like-button_active {
-  background: transparent url("../../assets/heart-filled.svg") center/contain
-    no-repeat;
+  background-image: url("../../assets/heart-filled.svg");
 }

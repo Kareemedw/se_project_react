@@ -5,21 +5,21 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function EditProfileModal({ isOpen, onClose, onUpdateProfile }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
   useEffect(() => {
     if (isOpen) {
-      setUsername(currentUser?.username || "");
+      setName(currentUser?.name || "");
       setAvatar(currentUser?.avatar || "");
     }
-  }, [isOpen, currentUser?.username, currentUser?.avatar]);
+  }, [isOpen, currentUser?.name, currentUser?.avatar]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
     onUpdateProfile({
-      username,
+      name,
       avatar,
     });
   };
@@ -35,31 +35,29 @@ function EditProfileModal({ isOpen, onClose, onUpdateProfile }) {
     >
       <label className="modal__label" htmlFor="profile-username">
         Name
+        <input
+          className="modal__input"
+          id="profile-username"
+          type="text"
+          name="username"
+          value={name}
+          onChange={(evt) => setName(evt.target.value)}
+          required
+        />
       </label>
-
-      <input
-        className="modal__input"
-        id="profile-username"
-        type="text"
-        name="username"
-        value={username}
-        onChange={(evt) => setUsername(evt.target.value)}
-        required
-      />
 
       <label className="modal__label" htmlFor="profile-avatar">
         Avatar URL
+        <input
+          className="modal__input"
+          id="profile-avatar"
+          type="url"
+          name="avatar"
+          value={avatar}
+          onChange={(evt) => setAvatar(evt.target.value)}
+          required
+        />
       </label>
-
-      <input
-        className="modal__input"
-        id="profile-avatar"
-        type="url"
-        name="avatar"
-        value={avatar}
-        onChange={(evt) => setAvatar(evt.target.value)}
-        required
-      />
     </ModalWithForm>
   );
 }

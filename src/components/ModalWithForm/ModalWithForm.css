@@ -106,10 +106,17 @@
 }
 
 .modal__secondary-button {
-  margin: 0 auto;
   width: 124px;
   height: 36px;
   background-color: transparent;
   border-radius: 8px;
   border: none;
+  display: flex;
+  position: absolute;
+  top: 323px;
+  left: 155px;
+}
+
+.modal__secondary-button_register {
+  top: 540px;
 }

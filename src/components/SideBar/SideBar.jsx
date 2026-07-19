@@ -6,7 +6,7 @@ import { removeToken } from "../../utils/token";
 import "./SideBar.css";
 
 function SideBar({ onEditProfile }) {
-  const { username, setIsLoggedIn } = useContext(CurrentUserContext);
+  const { name, setIsLoggedIn } = useContext(CurrentUserContext);
 
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ function SideBar({ onEditProfile }) {
     <aside className="sidebar">
       <div className="sidebar__profile">
         <img src={avatar} alt="Terrence Tegegne" className="sidebar__avatar" />
-        <p className="sidebar__username">{username}</p>
+        <p className="sidebar__username">{name}</p>
       </div>
       <ul>
         <li className="sidebar__link">

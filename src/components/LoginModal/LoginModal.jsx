@@ -43,27 +43,27 @@ const LoginModal = ({
     >
       <p className="login__welcome">Please login</p>
       <label className="modal__label-user" htmlFor="email">
-        Username:
+        Email:
+        <input
+          className="modal__input"
+          id="email"
+          type="email"
+          name="email"
+          value={data.email}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="email"
-        type="email"
-        name="email"
-        value={data.email}
-        onChange={handleChange}
-      />
       <label className="modal__label-user" htmlFor="password">
         Password:
+        <input
+          className="modal__input"
+          id="password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={data.password}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="password"
-        name="password"
-        type={showPassword ? "text" : "password"}
-        value={data.password}
-        onChange={handleChange}
-      />
       <button
         className="show__password-btn modal__submit_btn-password"
         type="button"

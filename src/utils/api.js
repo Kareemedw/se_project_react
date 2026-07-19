@@ -59,7 +59,7 @@ export const removeCardLike = (itemID, token) => {
   }).then(handleServerResponse);
 };
 
-export const updateUserProfile = ({ username, avatar }, token) => {
+export const updateUserProfile = ({ name, avatar }, token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
@@ -67,7 +67,7 @@ export const updateUserProfile = ({ username, avatar }, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      username,
+      name,
       avatar,
     }),
   }).then(handleServerResponse);

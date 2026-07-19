@@ -39,7 +39,7 @@ function App() {
 
   const [userData, setUserData] = useState({
     _id: "",
-    username: "",
+    name: "",
     email: "",
     avatar: "",
   });
@@ -114,15 +114,10 @@ function App() {
       .catch(console.error);
   };
 
-  const handleRegistration = ({
-    username,
-    email,
-    password,
-    confirmPassword,
-  }) => {
+  const handleRegistration = ({ name, email, password, confirmPassword }) => {
     if (password === confirmPassword) {
       auth
-        .register({ username, email, password })
+        .register({ name, email, password })
         .then(() => {
           return auth.authorize({ email, password });
         })
@@ -189,13 +184,13 @@ function App() {
       .catch(console.error);
   };
 
-  const handleUpdateProfile = ({ username, avatar }) => {
+  const handleUpdateProfile = ({ name, avatar }) => {
     const token = getToken();
 
     api
       .updateUserProfile(
         {
-          username,
+          name,
           avatar,
         },
         token,
@@ -267,8 +262,6 @@ function App() {
   return (
     <CurrentUserContext.Provider
       value={{
-        /* username: userData.username,
-        email: userData.email,*/
         ...userData,
         setIsLoggedIn,
       }}
@@ -277,7 +270,6 @@ function App() {
         value={{
           currentTemperatureUnit,
           handleToggleSwitchChange,
-          ...userData,
           isLoggedIn,
           setIsLoggedIn,
         }}

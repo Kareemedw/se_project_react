@@ -20,7 +20,9 @@ function Header({
     day: "numeric",
   });
 
-  const { username, setIsLoggedIn } = useContext(CurrentUserContext);
+  console.log("Current User:", currentUser);
+
+  const { setIsLoggedIn } = currentUser;
 
   const navigate = useNavigate();
 
@@ -54,17 +56,17 @@ function Header({
             </button>
 
             <NavLink to="/profile" className="header__nav-link">
-              <p className="header__username">{currentUser.username}</p>
+              <p className="header__username">{currentUser.name}</p>
 
               {currentUser.avatar ? (
                 <img
                   src={currentUser.avatar}
-                  alt={currentUser.username}
+                  alt={currentUser.name}
                   className="header__avatar"
                 />
               ) : (
                 <div className="header__avatar-placeholder">
-                  {currentUser.username?.[0]?.toUpperCase()}
+                  {currentUser.name?.[0]?.toUpperCase()}
                 </div>
               )}
             </NavLink>
