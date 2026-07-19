@@ -20,8 +20,6 @@ function Header({
     day: "numeric",
   });
 
-  console.log("Current User:", currentUser);
-
   const { setIsLoggedIn } = currentUser;
 
   const navigate = useNavigate();
