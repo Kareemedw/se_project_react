@@ -118,21 +118,8 @@ function App() {
     if (password === confirmPassword) {
       auth
         .register({ name, email, password })
-        .then(() => {
-          return auth.authorize({ email, password });
-        })
-        .then(({ token }) => {
-          if (!token) {
-            throw new Error("The server did not return a token");
-          }
-
-          localStorage.setItem("jwt", token);
-
-          return api.getCurrentUser(token);
-        })
         .then((user) => {
-          setUserData(user);
-          setIsLoggedIn(true);
+          setActiveModal("login");
           closeActiveModal();
         })
         .catch(console.error);

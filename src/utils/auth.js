@@ -2,13 +2,13 @@ import { handleServerResponse } from "./api";
 
 const baseUrl = "http://localhost:3001";
 
-export const register = ({ name, email, password, avatar }) => {
+export const register = ({ name, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, password, avatar }),
+    body: JSON.stringify({ name, email, password }),
   }).then(handleServerResponse);
 };
 

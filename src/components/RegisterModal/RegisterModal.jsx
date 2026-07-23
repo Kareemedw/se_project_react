@@ -43,13 +43,13 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
     >
       <p className="register__welcome">Please register</p>
-      <label className="modal__label-user " htmlFor="username">
+      <label className="modal__label-user " htmlFor="name">
         Username:
         <input
           className="modal__input"
-          id="username"
+          id="name"
           type="text"
-          name="username"
+          name="name"
           value={data.name}
           onChange={handleChange}
         />
