@@ -1,4 +1,6 @@
-const baseUrl = "http://localhost:3001";
+import { BASE_URL } from "./constants";
+
+const baseUrl = BASE_URL;
 
 const getHeaders = (token) => {
   return {
