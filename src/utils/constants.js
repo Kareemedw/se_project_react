@@ -75,7 +75,7 @@ export const coordinates = {
 
 export const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "http://api.weather-wear.ignorelist.com"
-    : "http://localhost:3001";
+    ? "https://api.weather-wear.ignorelist.com"
+    : "https://localhost:3001";
 
 export const APIkey = "04b84d8f591d37ae36b67157bfce92bc";
