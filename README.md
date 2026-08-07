@@ -141,9 +141,15 @@ Deployment (Render / Vercel)
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Project Pitch Video - https://drive.google.com/file/d/1EKrt5wxZ_9oNlxf5FW7D-gDT2C4S2MRG/view?usp=sharing
+# Project Pitch Video
 
-# Backend link - https://github.com/Kareemedw/se_project_express
+## 1
+
+https://drive.google.com/drive/folders/13qxB4PPvC_018GbjXSaevuxLXIuJfIrp?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+## 2
+
+https://drive.google.com/file/d/1EKrt5wxZ_9oNlxf5FW7D-gDT2C4S2MRG/view?usp=sharing
 
 ## Author:
 
