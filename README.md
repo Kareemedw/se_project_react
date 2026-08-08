@@ -141,6 +141,15 @@ Deployment (Render / Vercel)
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+# Github Backend Link
+
+https://github.com/Kareemedw/se_project_express
+
+# Frontend Links
+
+https://weather-wear.ignorelist.com
+https://www.weather-wear.ignorelist.com
+
 # Backend Link
 
 https://api.weather-wear.ignorelist.com
